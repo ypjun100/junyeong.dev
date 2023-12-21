@@ -1,5 +1,5 @@
 # Setup
-title: Dark Poole
+title: 윤준영, 더불어 성장하는 개발자
 url: https://getpoole.com
 paginate: 1
 baseurl: ""
@@ -32,17 +32,14 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Mark Otto
-  url: https://twitter.com/mdo
-  email: markdotto@gmail.com
+  name: Junyeong Yun
+  # url: https://twitter.com/mdo
+  email: ypjun100@gmail.com
 
 # Custom vars
 version: 3.0.0
 
 # Navbar page list
-nav:
-  - title: Blog
-    url: /archive
-
-  - title: About
-    url: /about
+# nav:
+#   - title: English
+#     url: /en
