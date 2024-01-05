@@ -3,7 +3,7 @@ title: 윤준영, 더불어 성장하는 개발자
 url: https://getpoole.com
 paginate: 1
 baseurl: ""
-permalink: /project/:title
+permalink: /:categories/:title
 
 # Gems
 plugins:

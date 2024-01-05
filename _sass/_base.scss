@@ -99,6 +99,21 @@ mark {
   border-radius: .125rem;
 }
 
+.url-with-icon {
+  font-size: 12pt;
+  opacity: 0.7;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.url-with-icon:nth-child(1) {
+  margin-left: 0;
+}
+
+.url-with-icon > svg {
+  vertical-align: -2px;
+  margin-right: 5px;
+}
+
 .projects {
   display: flex;
   flex-wrap: wrap;
