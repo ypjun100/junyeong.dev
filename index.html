@@ -76,6 +76,7 @@ title: Home
                         </p>
                         <p>{{ post.desc }}</p>
                         <div class="project-skill">
+                            <!-- 만약 사용한 기술이 3개 이상이면 2개까지만 표시 (3개 이상부터는 다음 줄로 넘어갈 수 있기 때문) -->
                             {% if 2 >= post.skills.size %}
                                 {% for skill in post.skills %}
                                     <img src="https://img.shields.io/badge/{{ skill.logo }}-{{ skill.color }}?style=flat&logo={{ skill.logo | downcase }}&logoColor={{ skill.logoColor }}">
@@ -110,30 +111,6 @@ title: Home
                     <td>{{ post.date | date: "%Y/%-m/%-d" }}</td>
                 </tr>
             {% endfor %}
-            <tr>
-                <td>
-                    <svg viewBox="0 0 30 30" width="14" style="fill: #b8b8b8; margin-bottom: -1px;"><path d="M16,1H4v28h22V11L16,1z M16,3.828L23.172,11H16V3.828z M24,27H6V3h8v10h10V27z M8,17h14v-2H8V17z M8,21h14v-2H8V21z M8,25h14v-2H8V25z"></path></svg>&nbsp;
-                    <a href="#">SCH 피닉스 창업아이템경진대회</a>
-                </td>
-                <td><span class="gold">대상</span></td>
-                <td>2019/11/05</td>
-            </tr>
-            <tr>
-                <td>
-                    <svg viewBox="0 0 30 30" width="14" style="fill: #b8b8b8; margin-bottom: -1px;"><path d="M16,1H4v28h22V11L16,1z M16,3.828L23.172,11H16V3.828z M24,27H6V3h8v10h10V27z M8,17h14v-2H8V17z M8,21h14v-2H8V21z M8,25h14v-2H8V25z"></path></svg>&nbsp;
-                    <a href="#">SCH 피닉스 창업아이템경진대회</a>
-                </td>
-                <td><span class="silver">은상</span></td>
-                <td>2019/11/05</td>
-            </tr>
-            <tr>
-                <td>
-                    <svg viewBox="0 0 30 30" width="14" style="fill: #b8b8b8; margin-bottom: -1px;"><path d="M16,1H4v28h22V11L16,1z M16,3.828L23.172,11H16V3.828z M24,27H6V3h8v10h10V27z M8,17h14v-2H8V17z M8,21h14v-2H8V21z M8,25h14v-2H8V25z"></path></svg>&nbsp;
-                    <a href="#">SCH 피닉스 창업아이템경진대회</a>
-                </td>
-                <td><span class="bronze">동상</span></td>
-                <td>2019/11/05</td>
-            </tr>
         </table>
     </div>
 

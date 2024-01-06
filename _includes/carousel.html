@@ -32,10 +32,11 @@
           <ul>
             {% for item in page.carousels[number].images %}
               <li class="carousel__slide">
+                <!-- 첫 번째 사진은 페이지 로딩 때 불러오고 나머지 뒷 사진들은 사용자가 트리거 했을 때 불러옴 -->
                 {% if forloop.first %}
-                  <a class="image-link" href="{{ item.image }}"><img src="{{ item.image }}" style="width: 100%; height: 100%; object-fit: cover;"/></a>
+                  <a class="image-link" href="{{ item.image }}"><img src="{{ item.image }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;"/></a>
                 {% else %}
-                <a class="image-link" href="{{ item.image }}"><img loading="lazy" src="{{ item.image }}" style="width: 100%; height: 100%; object-fit: cover;"/></a>
+                  <a class="image-link" href="{{ item.image }}"><img loading="lazy" src="{{ item.image }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;"/></a>
                 {% endif %}
               </li>
             {% endfor %}
@@ -60,6 +61,7 @@
   text-align: center;
   position: absolute;
   padding: 0;
+  border-radius: 5px;
 }
 .carousel__controls,
 .carousel__activator {
@@ -107,9 +109,8 @@
   cursor: pointer;
   border-width: 3px 3px 0 0;
   border-style: solid;
-  border-color: #fafafa;
+  border-color: #9f9f9f;
   opacity: 0.35;
-  /* opacity: 1; */
   outline: 0;
   z-index: 3;
 }
@@ -187,7 +188,7 @@
   width: 30px;
 }
 .carousel__indicator {
-  background-color: #fafafa;
+  background-color: #9f9f9f;
 }
 {% for item in page.carousels[number].images %}
 .carousel__slide:nth-of-type({{ forloop.index }}),
@@ -227,14 +228,14 @@
   }
   {% if include.showslider == "yes" %}
   {% if include.duration %}
-  setInterval(function(){
-    var j=0;
-    var elements = document.querySelectorAll('#carousel{{ number}} .carousel__control--forward');
-    for(i=(elements.length - 1);i>-1;i--) {
-      if(isVisible(elements[i])) j=i;
-    }
-    elements[j].click();
-  },{{ include.duration }}000);
+    setInterval(function(){
+      var j=0;
+      var elements = document.querySelectorAll('#carousel{{ number}} .carousel__control--forward');
+      for(i=(elements.length - 1);i>-1;i--) {
+        if(isVisible(elements[i])) j=i;
+      }
+      elements[j].click();
+    },{{ include.duration }}000);
   {% endif %}
   {% endif %}
 </script>
