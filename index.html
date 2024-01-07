@@ -4,39 +4,131 @@ title: Home
 ---
 
 <div class="posts">
-  {% for post in paginator.posts %}
   <article class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | relative_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+    <div>
+        <div style="display: flex;">
+          <div style="display: flex; align-items: center; margin-right: 20px;">
+            <img src="/imgs/profile.png" width="90px" height="90px" style="border-radius: 100px; margin-bottom: 0;">
+          </div>
+          <div>
+            <h1>윤준영</h1>
+            <p>소프트웨어 엔지니어</p>
+          </div>
+        </div>
+        <div style="margin: 10px 0;">
+          <span class="url-with-icon" style="margin-left: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            <span>E-mail : </span>
+            <a href="mailto:ypjun100@gmail.com" target="_blank">ypjun100@gmail.com</a>
+          </span>
+          <br>
+          <span class="url-with-icon" style="margin-left: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+            <a href="https://blog.junyeong.dev" target="_blank">Blog</a>
+          </span>
+          ·
+          <span class="url-with-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="15.5" viewBox="0 0 496 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            <a href="https://github.com/ypjun100" target="_blank">Github</a>
+          </span>
+          ·
+          <span class="url-with-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            <a href="https://www.linkedin.com/in/ypjun100/" target="_blank">LinkedIn</a>
+          </span>
+        </div>
+    </div>
+    <hr>
 
-    <time datetime="{{ post.date | date_to_xmlschema }}" class="post-date"
-      >{{ post.date | date_to_string }}</time
-    >
+    <h2>소개</h2>
+    <p>안녕하세요! 소프트웨어 엔지니어를 목표로 공부중인 윤준영입니다. 현재 대학교 재학중이며, 관심있는 분야는 <code class="language-plaintext highlighter-rouge">백엔드</code>, <code class="language-plaintext highlighter-rouge">iOS 앱개발</code>입니다. 모두가 더불어 성장할 수 있는 곳에서 커리어를 쌓아가고 싶습니다.</p>
 
-    {{ post.content }}
+    <h4>기술스택</h4>
+    <div>
+        <style>img { margin-bottom: 5px; }</style>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=swift&logoColor=white"/>
+        <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+        <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+        <br>
+        <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
+        <img src="https://img.shields.io/badge/iOS-FFFFFF?style=for-the-badge&logo=ios&logoColor=black"/>
+        <img src="https://img.shields.io/badge/ExpressJS-FFFFFF?style=for-the-badge&logo=express&logoColor=black"/>
+        <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+        <img src="https://img.shields.io/badge/Tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
+        <br>
+        <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+    </div>
+
+    <h2>프로젝트</h2>
+    <div class="projects">
+        {% for post in site.categories.project %}
+            <a class="project" href="{{ post.url }}">
+                <div class="contents">
+                    <img src="{{ post.carousels[0].images[0].image }}"/>
+                    <div class="project-desc">
+                        <p>
+                            <svg viewBox="0 0 30 30" width="14" style="fill: #b8b8b8; margin-bottom: -1px;"><path d="M16,1H4v28h22V11L16,1z M16,3.828L23.172,11H16V3.828z M24,27H6V3h8v10h10V27z M8,17h14v-2H8V17z M8,21h14v-2H8V21z M8,25h14v-2H8V25z"></path></svg>
+                            <span>{{ post.title }}</span>
+                        </p>
+                        <p>{{ post.desc }}</p>
+                        <div class="project-skill">
+                            <!-- 만약 사용한 기술이 3개 이상이면 2개까지만 표시 (3개 이상부터는 다음 줄로 넘어갈 수 있기 때문) -->
+                            {% if 2 >= post.skills.size %}
+                                {% for skill in post.skills %}
+                                    <!-- 만약 logoName이 선언되어 있다면 해당 파라미터를 logoName으로 사용 -->
+                                    {% if skill.logoName == none %}
+                                      <img src="https://img.shields.io/badge/{{ skill.name }}-{{ skill.color }}?style=flat&logo={{ skill.name | downcase }}&logoColor={{ skill.logoColor }}">
+                                    {% else %}
+                                      <img src="https://img.shields.io/badge/{{ skill.name }}-{{ skill.color }}?style=flat&logo={{ skill.logoName | downcase }}&logoColor={{ skill.logoColor }}">
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                {% for i in (0..1) %}
+                                    <!-- 만약 logoName이 선언되어 있다면 해당 파라미터를 logoName으로 사용 -->
+                                    {% if skill.logoName == none %}
+                                      <img src="https://img.shields.io/badge/{{ post.skills[i].name }}-{{ post.skills[i].color }}?style=flat&logo={{ post.skills[i].name | downcase }}&logoColor={{ post.skills[i].logoColor }}">
+                                    {% else %}
+                                      <img src="https://img.shields.io/badge/{{ post.skills[i].name }}-{{ post.skills[i].color }}?style=flat&logo={{ post.skills[i].logoName | downcase }}&logoColor={{ post.skills[i].logoColor }}">
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <h2>수상경력</h2>
+    <div class="table-scrollable">
+        <table class="prizes">
+            <tr>
+                <th>대회명</th>
+                <th>수상</th>
+                <th>수상일</th>
+            </tr>
+            {% for post in site.categories.prize %}
+                <tr>
+                    <td>
+                        <svg viewBox="0 0 30 30" width="14" style="fill: #b8b8b8; margin-bottom: -1px;"><path d="M16,1H4v28h22V11L16,1z M16,3.828L23.172,11H16V3.828z M24,27H6V3h8v10h10V27z M8,17h14v-2H8V17z M8,21h14v-2H8V21z M8,25h14v-2H8V25z"></path></svg>&nbsp;
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                    </td>
+                    <td><span class="{{ post.prize.type }}">{{ post.prize.name }}</span></td>
+                    <td>{{ post.date | date: "%Y/%-m/%-d" }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+  
+    <h2>활동</h2>
+    <h4>2019 GDSC</h4>
+    <ul>
+      <li>운영진 및 딥러닝 강의 진행</li>
+    </ul>
+
   </article>
-  {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-  <a
-    class="pagination-item older"
-    href="{{ paginator.next_page_path | relative_url }}"
-    >Older</a
-  >
-  {% else %}
-  <span class="pagination-item older">Older</span>
-  {% endif %} {% if paginator.previous_page %}
-  <a
-    class="pagination-item newer"
-    href="{{ paginator.previous_page_path | relative_url }}"
-    >Newer</a
-  >
-  {% else %}
-  <span class="pagination-item newer">Newer</span>
-  {% endif %}
 </div>

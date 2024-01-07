@@ -6,10 +6,6 @@
 .page,
 .post {
   margin-bottom: 4em;
-
-  li + li {
-    margin-top: .25rem;
-  }
 }
 
 // Blog post or page title
@@ -35,7 +31,7 @@
 .post-date {
   display: block;
   margin-top: -.5rem;
-  margin-bottom: var(--spacer);
+  margin-bottom: 7px;
   color: var(--gray-600);
 }
 
@@ -64,4 +60,22 @@
       color: var(--gray-600);
     }
   }
+}
+
+ul {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  li {
+    img {
+      margin-top: 8px;
+    }
+
+    ul {
+      margin-bottom: 0;
+    }
+  }
+}
+
+ul > li:last-child {
+  padding-bottom: 0;
 }

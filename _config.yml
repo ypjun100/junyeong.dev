@@ -1,10 +1,9 @@
 # Setup
-title: Dark Poole
-url: https://andrewhwanpark.github.io/dark-poole
+title: 윤준영, 더불어 성장하는 개발자
+url: https://getpoole.com
 paginate: 1
-paginate_path: "/dark-poole/page:num/"
-baseurl: "/dark-poole"
-permalink: pretty
+baseurl: ""
+permalink: /:categories/:title
 
 # Gems
 plugins:
@@ -33,17 +32,14 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Mark Otto
-  url: https://twitter.com/mdo
-  email: markdotto@gmail.com
+  name: Junyeong Yun
+  # url: https://twitter.com/mdo
+  email: ypjun100@gmail.com
 
 # Custom vars
 version: 3.0.0
 
 # Navbar page list
-nav:
-  - title: Blog
-    url: /dark-poole/archive
-
-  - title: About
-    url: /dark-poole/about
+# nav:
+#   - title: English
+#     url: /en
