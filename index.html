@@ -79,11 +79,21 @@ title: Home
                             <!-- 만약 사용한 기술이 3개 이상이면 2개까지만 표시 (3개 이상부터는 다음 줄로 넘어갈 수 있기 때문) -->
                             {% if 2 >= post.skills.size %}
                                 {% for skill in post.skills %}
-                                    <img src="https://img.shields.io/badge/{{ skill.logo }}-{{ skill.color }}?style=flat&logo={{ skill.logo | downcase }}&logoColor={{ skill.logoColor }}">
+                                    <!-- 만약 logoName이 선언되어 있다면 해당 파라미터를 logoName으로 사용 -->
+                                    {% if skill.logoName == none %}
+                                      <img src="https://img.shields.io/badge/{{ skill.name }}-{{ skill.color }}?style=flat&logo={{ skill.name | downcase }}&logoColor={{ skill.logoColor }}">
+                                    {% else %}
+                                      <img src="https://img.shields.io/badge/{{ skill.name }}-{{ skill.color }}?style=flat&logo={{ skill.logoName | downcase }}&logoColor={{ skill.logoColor }}">
+                                    {% endif %}
                                 {% endfor %}
                             {% else %}
                                 {% for i in (0..1) %}
-                                    <img src="https://img.shields.io/badge/{{ post.skills[i].logo }}-{{ post.skills[i].color }}?style=flat&logo={{ post.skills[i].logo | downcase }}&logoColor={{ post.skills[i].logoColor }}">
+                                    <!-- 만약 logoName이 선언되어 있다면 해당 파라미터를 logoName으로 사용 -->
+                                    {% if skill.logoName == none %}
+                                      <img src="https://img.shields.io/badge/{{ post.skills[i].name }}-{{ post.skills[i].color }}?style=flat&logo={{ post.skills[i].name | downcase }}&logoColor={{ post.skills[i].logoColor }}">
+                                    {% else %}
+                                      <img src="https://img.shields.io/badge/{{ post.skills[i].name }}-{{ post.skills[i].color }}?style=flat&logo={{ post.skills[i].logoName | downcase }}&logoColor={{ post.skills[i].logoColor }}">
+                                    {% endif %}
                                 {% endfor %}
                             {% endif %}
                         </div>

@@ -37,7 +37,11 @@ layout: default
   </div>
   
   {% for skill in page.skills %}
-    <img src="https://img.shields.io/badge/{{ skill.logo }}-{{ skill.color }}?style=for-the-badge&logo={{ skill.logo | downcase }}&logoColor={{ skill.logoColor }}"/>
+    {% if skill.logoName == none %}
+      <img src="https://img.shields.io/badge/{{ skill.name }}-{{ skill.color }}?style=for-the-badge&logo={{ skill.name | downcase }}&logoColor={{ skill.logoColor }}">
+    {% else %}
+      <img src="https://img.shields.io/badge/{{ skill.name }}-{{ skill.color }}?style=for-the-badge&logo={{ skill.logoName | downcase }}&logoColor={{ skill.logoColor }}">
+    {% endif %}
   {% endfor %}
   <!-- prize 페이지는 따로 스킬이 없기 때문에 공백 추가 -->
   {% if page.categories[0] == "prize" %}
