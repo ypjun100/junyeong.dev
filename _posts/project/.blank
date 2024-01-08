@@ -1,0 +1,38 @@
+---
+layout: post
+categories: [project]
+title: 제목
+desc: 간단한 설명
+urls:
+  -
+    type: github
+    name: Github
+    url: https://github.com
+skills:
+  -
+    name: Java
+    logoName: OpenJDK
+    color: ED8B00
+    logoColor: white
+  -
+    name: SpringBoot
+    color: 6DB33F
+    logoColor: white
+people: [백엔드 2명]
+carousels:
+  - images: 
+    - image: /imgs/profile.png
+---
+
+{% include carousel.html height="70" unit="%" duration="15" number="1" showslider="yes" objectfit="cover" %}
+
+## 설명
+> 내용
+
+## 주요 담당 내용
+### 제목
+* 내용
+
+## 주요 개발 내용
+### 제목
+* 내용

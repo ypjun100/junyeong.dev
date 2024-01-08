@@ -39,6 +39,18 @@ img {
   border-radius: var(--border-radius);
 }
 
+span.gold {
+  background-color: #cfa040;
+}
+
+span.silver {
+  background-color: #8e8e8e;
+}
+
+span.bronze {
+  background-color: #935a1c;
+}
+
 table {
   margin-bottom: 1rem;
   width: 100%;
@@ -68,18 +80,6 @@ th {
     color: #ffffff;
     font-size: 10pt;
   }
-
-  span.gold {
-    background-color: #cfa040;
-  }
-
-  span.silver {
-    background-color: #8e8e8e;
-  }
-
-  span.bronze {
-    background-color: #935a1c;
-  }
 }
 
 th {
@@ -104,6 +104,13 @@ mark {
   opacity: 0.7;
   margin-left: 10px;
   margin-right: 10px;
+}
+.url-with-icon.no-opacity {
+  opacity: 1;
+  
+  svg {
+    opacity: 0.7;
+  }
 }
 .url-with-icon:nth-child(1) {
   margin-left: 0;
@@ -150,6 +157,8 @@ mark {
       p:nth-child(2) {
         color: #928e8e;
         margin-bottom: 0;
+        line-height: 1.5;
+        min-height: 47.98px;
       }
 
       .project-skill {
@@ -202,6 +211,12 @@ table.prizes {
       width: 100%;
       margin-right: 0;
       margin-bottom: 15px;
+
+      .contents {
+        p:nth-child(2) {
+          min-height: auto;
+        }
+      }
     }
   }
 }
