@@ -1,0 +1,30 @@
+---
+layout: post
+categories: [prize]
+title: 제목
+prize:
+  name: 총장상
+  type: gold
+urls:
+  -
+    type: github
+    name: Github
+    url: https://github.com
+people: [백엔드 2명]
+carousels:
+  - images: 
+    - image: /imgs/profile.png
+---
+
+{% include carousel.html height="70" unit="%" duration="15" number="1" showslider="yes" objectfit="cover" %}
+
+## 설명
+> 내용
+
+## 주요 담당 내용
+### 제목
+* 내용
+
+## 주요 개발 내용
+### 제목
+* 내용
