@@ -3,6 +3,11 @@ layout: post
 categories: [project]
 title: REMINDER
 desc: 버릇 교정을 도와주는 머신러닝 기반 IOT 디바이스
+urls:
+  -
+    type: youtube
+    name: 프로젝트 소개 영상
+    url: https://www.youtube.com/watch?v=vB_ea0pDKl4
 skills:
   -
     name: Tensorflow
