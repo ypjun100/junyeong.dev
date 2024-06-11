@@ -94,9 +94,11 @@ thead th {
 }
 
 mark {
-  padding: .15rem;
-  background-color: var(--yellow-100);
-  border-radius: .125rem;
+  text-decoration: none;
+  background: rgba(255, 208, 0, .4);
+  border-radius: 4px;
+  padding: 2px 3px;
+  color: #ffffffed;
 }
 
 .url-with-icon {
