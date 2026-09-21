@@ -25,3 +25,6 @@ docs/specs/
 
 # Paseo workspace config. Machine-local.
 paseo.json
+
+# Obsidian
+.obsidian/
