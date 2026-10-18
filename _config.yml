@@ -16,6 +16,12 @@ author:
   name: Junyeong Yun
   email: ypjun100@gmail.com
 
+# Google Analytics 4 web stream. A public client-side ID, not a secret. Only
+# production builds render the tag, and only the host in url above reports;
+# see _includes/analytics.html.
+analytics:
+  measurement_id: G-JVGDLR3RB9
+
 # Plugins
 plugins:
   - jekyll-feed
