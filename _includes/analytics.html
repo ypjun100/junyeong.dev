@@ -64,6 +64,24 @@
     tag.async = true;
     tag.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
     document.head.appendChild(tag);
+
+    // The contact, profile and portfolio links name their event in
+    // data-analytics-* attributes. A listener on the document also covers the
+    // links parsed after this head script, and Enter on a link arrives as a
+    // click. Only the two labels go out, never the href with its address.
+    // Navigation is never held for the hit: a click lost to a blocked tag or a
+    // quick unload costs less than a reader kept waiting.
+    var EVENTS = ["contact_click", "profile_click", "portfolio_link_click"];
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest ? e.target.closest("a[data-analytics-event]") : null;
+      if (!link) return;
+      var name = link.getAttribute("data-analytics-event");
+      if (EVENTS.indexOf(name) < 0) return;
+      gtag("event", name, {
+        link_type: link.getAttribute("data-analytics-link-type"),
+        link_location: link.getAttribute("data-analytics-link-location")
+      });
+    });
   })();
 </script>
 {%- endif -%}
