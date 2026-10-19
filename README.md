@@ -41,7 +41,7 @@ Page views are the `page_view` that the `config` call sends by default. Every ev
 
 `content_category` compares posts by their first category alone, so `일상` covers the travel posts along with every other everyday post.
 
-Three custom events mark intent on specific links. Each carries only `link_type` and `link_location`, never the URL, the link text, or the email address.
+Three custom events mark intent on specific links, activated by a primary click, keyboard, or middle click. Right clicks are ignored. Each carries only `link_type` and `link_location`, never the URL, the link text, or the email address.
 
 | Event | Links | `link_type` | `link_location` |
 | --- | --- | --- | --- |

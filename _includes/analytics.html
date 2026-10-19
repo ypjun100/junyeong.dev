@@ -67,12 +67,14 @@
 
     // The contact, profile and portfolio links name their event in
     // data-analytics-* attributes. A listener on the document also covers the
-    // links parsed after this head script, and Enter on a link arrives as a
-    // click. Only the two labels go out, never the href with its address.
+    // links parsed after this head script. Enter arrives as a click; opening
+    // a link with the middle button arrives as an auxclick. Only the two
+    // labels go out, never the href with its address.
     // Navigation is never held for the hit: a click lost to a blocked tag or a
     // quick unload costs less than a reader kept waiting.
     var EVENTS = ["contact_click", "profile_click", "portfolio_link_click"];
-    document.addEventListener("click", function (e) {
+    function trackLink(e) {
+      if (e.type === "auxclick" && e.button !== 1) return;
       var link = e.target.closest ? e.target.closest("a[data-analytics-event]") : null;
       if (!link) return;
       var name = link.getAttribute("data-analytics-event");
@@ -81,7 +83,9 @@
         link_type: link.getAttribute("data-analytics-link-type"),
         link_location: link.getAttribute("data-analytics-link-location")
       });
-    });
+    }
+    document.addEventListener("click", trackLink);
+    document.addEventListener("auxclick", trackLink);
   })();
 </script>
 {%- endif -%}
