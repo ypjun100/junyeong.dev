@@ -1,0 +1,91 @@
+{%- comment -%}
+  Google Analytics 4. Only production builds with a measurement ID get the tag,
+  so jekyll serve and plain local builds carry none of it.
+
+  A production build can still be opened away from the live site, from _site/
+  on localhost or on a preview host, so the script also checks the hostname
+  against site.url before it touches dataLayer or requests the tag.
+
+  Page views are the one config sends by default. The content parameters ride
+  on that same config, which sends them with every event on the page, so the
+  first view and every later event carry them without working them out again.
+{%- endcomment -%}
+{%- assign analytics_id = site.analytics.measurement_id | strip -%}
+{%- if jekyll.environment == "production" and analytics_id != "" -%}
+
+{%- comment -%}
+  content_group fills GA4's built-in Content group dimension. Detail pages take
+  their collection's kind; the three screens have none and are told apart by
+  URL, as the sidebar does.
+{%- endcomment -%}
+{%- assign content_group = "other" -%}
+{%- if page.kind == "blog" or page.kind == "project" or page.kind == "award" -%}
+  {%- assign content_group = page.kind -%}
+{%- elsif page.url == "/" -%}
+  {%- assign content_group = "home" -%}
+{%- elsif page.url == "/about/" -%}
+  {%- assign content_group = "about" -%}
+{%- elsif page.url == "/posts/" -%}
+  {%- assign content_group = "posts" -%}
+{%- endif -%}
+
+{%- comment -%}
+  Blog posts only, and only the first category: the posts list the broad one
+  first (일상 before 여행기). It is author-written, so the script below escapes
+  "<" as well; a "</script>" inside it would otherwise end the element early.
+{%- endcomment -%}
+{%- if content_group == "blog" -%}
+  {%- assign content_category = page.categories | first | default: "uncategorized" -%}
+{%- endif -%}
+
+{%- assign analytics_host = site.url | split: "//" | last | split: "/" | first -%}
+<script>
+  (function () {
+    if (window.location.hostname !== {{ analytics_host | jsonify }}) return;
+
+    var id = {{ analytics_id | jsonify }};
+    window.dataLayer = window.dataLayer || [];
+    // Push the arguments object itself, as Google's snippet does. gtag.js does
+    // not read an array copy of it as a command.
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    gtag("js", new Date());
+    gtag("config", id, {
+      content_group: {{ content_group | jsonify }},
+      {%- if content_category %}
+      content_category: {{ content_category | jsonify | replace: "<", "\u003c" }},
+      {%- endif %}
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
+
+    var tag = document.createElement("script");
+    tag.async = true;
+    tag.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(tag);
+
+    // The contact, profile and portfolio links name their event in
+    // data-analytics-* attributes. A listener on the document also covers the
+    // links parsed after this head script. Enter arrives as a click; opening
+    // a link with the middle button arrives as an auxclick. Only the two
+    // labels go out, never the href with its address.
+    // Navigation is never held for the hit: a click lost to a blocked tag or a
+    // quick unload costs less than a reader kept waiting.
+    var EVENTS = ["contact_click", "profile_click", "portfolio_link_click"];
+    function trackLink(e) {
+      if (e.type === "auxclick" && e.button !== 1) return;
+      var link = e.target.closest ? e.target.closest("a[data-analytics-event]") : null;
+      if (!link) return;
+      var name = link.getAttribute("data-analytics-event");
+      if (EVENTS.indexOf(name) < 0) return;
+      gtag("event", name, {
+        link_type: link.getAttribute("data-analytics-link-type"),
+        link_location: link.getAttribute("data-analytics-link-location")
+      });
+    }
+    document.addEventListener("click", trackLink);
+    document.addEventListener("auxclick", trackLink);
+  })();
+</script>
+{%- endif -%}

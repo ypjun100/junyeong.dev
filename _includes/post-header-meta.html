@@ -15,10 +15,18 @@
   {%- endif %}
 
   {%- if page.urls and page.urls.size > 0 %}
+  {%- comment -%}
+    Every link here reports a portfolio_link_click, typed by its front matter
+    type. Only the types the content uses pass through; a missing, misspelled,
+    or new one reports as "other" instead of starting a value of its own.
+  {%- endcomment -%}
+  {%- assign link_types = "github,youtube,website,news,link" | split: "," %}
   <div class="meta-grid__label">링크</div>
   <div class="meta-grid__value meta-grid__links">
     {%- for url in page.urls %}
-    <a href="{{ url.url | relative_url }}"{% if url.url contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ url.name }}</a>
+      {%- assign link_type = "other" -%}
+      {%- if link_types contains url.type -%}{%- assign link_type = url.type -%}{%- endif %}
+    <a href="{{ url.url | relative_url }}"{% if url.url contains '://' %} target="_blank" rel="noopener"{% endif %} data-analytics-event="portfolio_link_click" data-analytics-link-type="{{ link_type }}" data-analytics-link-location="content_header">{{ url.name }}</a>
     {%- endfor %}
   </div>
   {%- endif %}
